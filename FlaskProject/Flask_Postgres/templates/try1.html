@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="card text-center">
+    <div class="card card-body" style="width: 40rem">
+        <form action="{{ url_for('add_student') }}" method="POST">
+            <div class="form-group">
+                <input type="number" class="form-control" name="regnum" placeholder="REGNUM">
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" placeholder="Name">
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="text" class="form-control" name="subject1" placeholder="SUBJECT NAME">
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="text" class="form-control" name="subject2" placeholder="SUBJECT NAME">
+            </div>
+            <br>
+            <button class="btn btn-primary btn-block">
+                Save
+            </button>
+        </form>
+
+        <hr>
+
+        <h2>Student Data</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>REGNUM</th>
+                <th>Name</th>
+                <th>Subject 1</th>
+                <th>Subject 2</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+                <td>{{ student[3] }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</body>
+</html>
